@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EL RUÑO - La última rueda del coche...</title>
+    <meta name="description" content="Play Store personal de EL RUÑO, la última rueda del coche...">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <nav class="navbar">
+        <div class="logo">EL <span>RUÑO</span></div>
+        <div class="nav-links">
+            <a href="#" class="active">Inicio</a>
+            <a href="#apps">Apps</a>
+            <a href="#webs">Webs</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>La última rueda del <span class="gradient-text">coche...</span></h1>
+            <p>Explora mi colección personal de creaciones. Descarga mis aplicaciones y visita mis sitios web, todo en un solo lugar.</p>
+            <a href="#apps" class="btn-primary">Explorar Creaciones</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="apps" class="section">
+            <div class="section-header">
+                <h2>Mis Aplicaciones</h2>
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="android">Android</button>
+                    <button class="filter-btn" data-filter="pc">PC</button>
+                </div>
+            </div>
+            
+            <div class="grid">
+                <!-- App 1 -->
+                <div class="card glass" data-category="android">
+                    <img src="assets/app1.png" alt="ProTask Icon" class="app-icon">
+                    <div class="card-content">
+                        <h3>ProTask</h3>
+                        <p class="tag">Android</p>
+                        <p>La mejor aplicación para gestionar tus tareas con un diseño minimalista y elegante.</p>
+                        <a href="#" class="btn-secondary">Descargar APK</a>
+                    </div>
+                </div>
+
+                <!-- App 2 -->
+                <div class="card glass" data-category="pc">
+                    <img src="assets/app2.png" alt="FitTrack Icon" class="app-icon">
+                    <div class="card-content">
+                        <h3>FitTrack PC</h3>
+                        <p class="tag">PC (Windows)</p>
+                        <p>Lleva un registro de tus entrenamientos directamente desde tu escritorio.</p>
+                        <a href="#" class="btn-secondary">Descargar .exe</a>
+                    </div>
+                </div>
+
+                <!-- App 3 -->
+                <div class="card glass" data-category="android">
+                    <img src="assets/app3.png" alt="WaveMusic Icon" class="app-icon">
+                    <div class="card-content">
+                        <h3>WaveMusic</h3>
+                        <p class="tag">Android</p>
+                        <p>Reproductor de música con ecualizador avanzado y soporte para formatos sin pérdida.</p>
+                        <a href="#" class="btn-secondary">Descargar APK</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="webs" class="section mt-5">
+            <div class="section-header">
+                <h2>Mis Sitios Web</h2>
+            </div>
+            
+            <div class="grid">
+                <!-- Web 1 -->
+                <div class="card glass web-card">
+                    <div class="card-content">
+                        <h3>Blog de Desarrollo</h3>
+                        <p>Artículos y tutoriales sobre programación, diseño web y desarrollo de software.</p>
+                        <a href="#" class="btn-secondary">Visitar Sitio</a>
+                    </div>
+                </div>
+                <!-- Web 2 -->
+                <div class="card glass web-card">
+                    <div class="card-content">
+                        <h3>Portafolio 3D</h3>
+                        <p>Galería interactiva con modelos 3D y experimentos con WebGL y Three.js.</p>
+                        <a href="#" class="btn-secondary">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 EL RUÑO - Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

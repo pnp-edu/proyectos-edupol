@@ -82,31 +82,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Smart Download Logic for EDUPOL (Triggered from Install button in details page)
-    const edupolBtn = document.getElementById('edupol-download-btn');
-    const installBtn = document.getElementById('detail-install-btn');
-    const detailsModal = document.getElementById('details-modal');
-    const closeDetailsBtn = document.getElementById('close-details-modal');
+    // Modal controls
+    const edupolAndroidBtn = document.getElementById('edupol-android-btn');
+    const edupolWebBtn = document.getElementById('edupol-web-btn');
     
+    const detailsModalAndroid = document.getElementById('details-modal-android');
+    const detailsModalWeb = document.getElementById('details-modal-web');
+    
+    const closeDetailsAndroid = document.getElementById('close-details-modal-android');
+    const closeDetailsWeb = document.getElementById('close-details-modal-web');
+    
+    const installBtn = document.getElementById('detail-install-btn');
     const downloadModal = document.getElementById('download-modal');
     const closeDownloadBtn = document.getElementById('close-modal');
 
-    // Click on app item shows details page
-    if (edupolBtn) {
-        edupolBtn.addEventListener('click', (e) => {
+    // Click on Android app card opens Android details
+    if (edupolAndroidBtn) {
+        edupolAndroidBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            detailsModal.style.display = 'flex';
+            detailsModalAndroid.style.display = 'flex';
         });
     }
 
-    // Close details page
-    if (closeDetailsBtn) {
-        closeDetailsBtn.addEventListener('click', () => {
-            detailsModal.style.display = 'none';
+    // Click on Web app card opens Web details
+    if (edupolWebBtn) {
+        edupolWebBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            detailsModalWeb.style.display = 'flex';
         });
     }
 
-    // Inside details page, clicking Install starts Smart Download
+    // Close Android details
+    if (closeDetailsAndroid) {
+        closeDetailsAndroid.addEventListener('click', () => {
+            detailsModalAndroid.style.display = 'none';
+        });
+    }
+
+    // Close Web details
+    if (closeDetailsWeb) {
+        closeDetailsWeb.addEventListener('click', () => {
+            detailsModalWeb.style.display = 'none';
+        });
+    }
+
+    // Inside Android details page, clicking Install starts Smart Download
     if (installBtn) {
         installBtn.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -163,8 +183,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close modals when clicking outside
     window.addEventListener('click', (e) => {
-        if (e.target === detailsModal) {
-            detailsModal.style.display = 'none';
+        if (e.target === detailsModalAndroid) {
+            detailsModalAndroid.style.display = 'none';
+        }
+        if (e.target === detailsModalWeb) {
+            detailsModalWeb.style.display = 'none';
         }
         if (e.target === downloadModal) {
             downloadModal.style.display = 'none';

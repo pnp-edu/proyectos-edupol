@@ -85,12 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal controls
     const edupolAndroidBtn = document.getElementById('edupol-android-btn');
     const edupolWebBtn = document.getElementById('edupol-web-btn');
+    const edupolPcBtn = document.getElementById('edupol-pc-btn');
     
     const detailsModalAndroid = document.getElementById('details-modal-android');
     const detailsModalWeb = document.getElementById('details-modal-web');
+    const detailsModalPc = document.getElementById('details-modal-pc');
     
     const closeDetailsAndroid = document.getElementById('close-details-modal-android');
     const closeDetailsWeb = document.getElementById('close-details-modal-web');
+    const closeDetailsPc = document.getElementById('close-details-modal-pc');
     
     const installBtn = document.getElementById('detail-install-btn');
     const downloadModal = document.getElementById('download-modal');
@@ -112,6 +115,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Click on PC app card opens PC details
+    if (edupolPcBtn) {
+        edupolPcBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            detailsModalPc.style.display = 'flex';
+        });
+    }
+
     // Close Android details
     if (closeDetailsAndroid) {
         closeDetailsAndroid.addEventListener('click', () => {
@@ -123,6 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeDetailsWeb) {
         closeDetailsWeb.addEventListener('click', () => {
             detailsModalWeb.style.display = 'none';
+        });
+    }
+
+    // Close PC details
+    if (closeDetailsPc) {
+        closeDetailsPc.addEventListener('click', () => {
+            detailsModalPc.style.display = 'none';
         });
     }
 
@@ -188,6 +206,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (e.target === detailsModalWeb) {
             detailsModalWeb.style.display = 'none';
+        }
+        if (e.target === detailsModalPc) {
+            detailsModalPc.style.display = 'none';
         }
         if (e.target === downloadModal) {
             downloadModal.style.display = 'none';

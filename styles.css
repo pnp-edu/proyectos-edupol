@@ -347,8 +347,12 @@ body {
     display: none;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
+    html, body {
+        height: auto;
+        overflow: auto;
+    }
+
     /* Header layout for mobile */
     .top-header {
         padding: 8px 16px;
@@ -393,8 +397,9 @@ body {
 
     /* Content Area */
     .content-area {
-        padding: 12px 16px 72px 16px; /* Extra padding bottom for bottom-nav */
-        height: calc(100vh - 100px);
+        padding: 12px 16px 80px 16px; /* Extra padding bottom for bottom-nav */
+        height: auto;
+        overflow: visible;
     }
 
     /* Promo Banner as Play Store Suggestions Card */

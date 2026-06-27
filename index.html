@@ -3,108 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EL RUÑO - La última rueda del coche...</title>
-    <meta name="description" content="Play Store personal de EL RUÑO, la última rueda del coche...">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>EL RUÑO - la ultima rueda del coche</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    
-    <nav class="navbar">
-        <div class="logo">EL <span>RUÑO</span></div>
-        <div class="nav-links">
-            <a href="#" class="active">Inicio</a>
-            <a href="#apps">Apps</a>
-            <a href="#webs">Webs</a>
+    <!-- Main Header -->
+    <header class="top-header">
+        <div class="logo-container">
+            <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 3.194v17.612c0 .611.666.985 1.173.666l14.496-9.158c.45-.285.45-.945 0-1.23L6.173 1.954C5.666 1.635 5 2.01 5 2.62v.574z" fill="url(#play-grad)"/>
+                <defs>
+                    <linearGradient id="play-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00C853" />
+                        <stop offset="33%" stop-color="#2962FF" />
+                        <stop offset="66%" stop-color="#D50000" />
+                        <stop offset="100%" stop-color="#FFD600" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <div class="brand-text">
+                <span class="brand-title">EL RUÑO</span>
+                <span class="brand-slogan">la ultima rueda del coche</span>
+            </div>
         </div>
-    </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>La última rueda del <span class="gradient-text">coche...</span></h1>
-            <p>Explora mi colección personal de creaciones. Descarga mis aplicaciones y visita mis sitios web, todo en un solo lugar.</p>
-            <a href="#apps" class="btn-primary">Explorar Creaciones</a>
+        <nav class="main-nav">
+            <a href="#">Juegos</a>
+            <a href="#" class="active">Apps</a>
+            <a href="#">Libros</a>
+            <a href="#">Infantiles</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn" aria-label="Search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+            <button class="icon-btn" aria-label="Help">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </button>
+            <div class="profile-pic"></div>
         </div>
     </header>
 
-    <main class="container">
-        <section id="apps" class="section">
-            <div class="section-header">
-                <h2>Mis Aplicaciones</h2>
-                <div class="filter-group">
-                    <button class="filter-btn active" data-filter="all">Todas</button>
-                    <button class="filter-btn" data-filter="android">Android</button>
-                    <button class="filter-btn" data-filter="pc">PC</button>
-                </div>
+    <!-- Sub Header (Filters) -->
+    <div class="filter-header">
+        <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Windows</button>
+        <button class="filter-chip active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/></svg> Teléfono</button>
+        <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2" ry="2"/></svg> Tablet</button>
+        <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg> TV</button>
+        <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M2 21h20"/></svg> Chromebook</button>
+        <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 13.5 13.5"/></svg> Reloj</button>
+    </div>
+
+    <main class="content-area">
+        <!-- Promo Banner -->
+        <section class="promo-banner">
+            <div class="promo-content">
+                <h2>Obtén un 15 % de descuento en descargas...</h2>
+                <p>EL RUÑO | Descubre nuevas aplicaciones | Descuento máximo de S/ 55. Guarda la oferta y úsala antes del 8 de julio de 2026. Aplican términos.</p>
+                <button class="btn-promo">Guardar</button>
             </div>
-            
-            <div class="grid">
-                <!-- App 1 -->
-                <div class="card glass" data-category="android">
-                    <img src="assets/app1.png" alt="ProTask Icon" class="app-icon">
-                    <div class="card-content">
-                        <h3>ProTask</h3>
-                        <p class="tag">Android</p>
-                        <p>La mejor aplicación para gestionar tus tareas con un diseño minimalista y elegante.</p>
-                        <a href="#" class="btn-secondary">Descargar APK</a>
-                    </div>
-                </div>
-
-                <!-- App 2 -->
-                <div class="card glass" data-category="pc">
-                    <img src="assets/app2.png" alt="FitTrack Icon" class="app-icon">
-                    <div class="card-content">
-                        <h3>FitTrack PC</h3>
-                        <p class="tag">PC (Windows)</p>
-                        <p>Lleva un registro de tus entrenamientos directamente desde tu escritorio.</p>
-                        <a href="#" class="btn-secondary">Descargar .exe</a>
-                    </div>
-                </div>
-
-                <!-- App 3 -->
-                <div class="card glass" data-category="android">
-                    <img src="assets/app3.png" alt="WaveMusic Icon" class="app-icon">
-                    <div class="card-content">
-                        <h3>WaveMusic</h3>
-                        <p class="tag">Android</p>
-                        <p>Reproductor de música con ecualizador avanzado y soporte para formatos sin pérdida.</p>
-                        <a href="#" class="btn-secondary">Descargar APK</a>
-                    </div>
-                </div>
+            <div class="promo-image">
+                <!-- Using one of the generated app icons as promo art -->
+                <img src="assets/app2.png" alt="Promo art">
             </div>
         </section>
 
-        <section id="webs" class="section mt-5">
-            <div class="section-header">
-                <h2>Mis Sitios Web</h2>
+        <!-- Section 1 -->
+        <section class="app-section">
+            <div class="section-title">
+                <h2>Hecho por EL RUÑO</h2>
+                <button class="see-more">→</button>
             </div>
-            
-            <div class="grid">
-                <!-- Web 1 -->
-                <div class="card glass web-card">
-                    <div class="card-content">
-                        <h3>Blog de Desarrollo</h3>
-                        <p>Artículos y tutoriales sobre programación, diseño web y desarrollo de software.</p>
-                        <a href="#" class="btn-secondary">Visitar Sitio</a>
+            <div class="app-list">
+                <!-- App Item -->
+                <a href="#" class="app-item">
+                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img">
+                    <div class="app-details">
+                        <span class="app-name">ProTask Manager</span>
+                        <span class="app-developer">EL RUÑO</span>
+                        <span class="app-rating">4.5 ★</span>
                     </div>
-                </div>
-                <!-- Web 2 -->
-                <div class="card glass web-card">
-                    <div class="card-content">
-                        <h3>Portafolio 3D</h3>
-                        <p>Galería interactiva con modelos 3D y experimentos con WebGL y Three.js.</p>
-                        <a href="#" class="btn-secondary">Visitar Sitio</a>
+                </a>
+                <!-- App Item -->
+                <a href="#" class="app-item">
+                    <img src="assets/app3.png" alt="App Icon" class="app-icon-img">
+                    <div class="app-details">
+                        <span class="app-name">WaveMusic Player</span>
+                        <span class="app-developer">EL RUÑO</span>
+                        <span class="app-rating">4.8 ★</span>
                     </div>
-                </div>
+                </a>
+                <!-- App Item -->
+                <a href="#" class="app-item">
+                    <img src="assets/app2.png" alt="App Icon" class="app-icon-img">
+                    <div class="app-details">
+                        <span class="app-name">FitTrack PC</span>
+                        <span class="app-developer">EL RUÑO</span>
+                        <span class="app-rating">4.2 ★</span>
+                    </div>
+                </a>
+                
+                <!-- Extra dummies to fill space -->
+                <a href="#" class="app-item">
+                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img" style="filter: hue-rotate(90deg);">
+                    <div class="app-details">
+                        <span class="app-name">Blog Personal</span>
+                        <span class="app-developer">EL RUÑO</span>
+                        <span class="app-rating">5.0 ★</span>
+                    </div>
+                </a>
+                <a href="#" class="app-item">
+                    <img src="assets/app3.png" alt="App Icon" class="app-icon-img" style="filter: hue-rotate(180deg);">
+                    <div class="app-details">
+                        <span class="app-name">Portafolio 3D</span>
+                        <span class="app-developer">EL RUÑO</span>
+                        <span class="app-rating">4.9 ★</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="app-section">
+            <div class="section-title">
+                <h2>Apps populares</h2>
+                <button class="see-more">→</button>
+            </div>
+            <div class="app-list">
+                <a href="#" class="app-item">
+                    <img src="assets/app2.png" alt="App Icon" class="app-icon-img" style="filter: hue-rotate(270deg);">
+                    <div class="app-details">
+                        <span class="app-name">Galería de Fotos</span>
+                        <span class="app-developer">Herramientas</span>
+                        <span class="app-rating">4.3 ★</span>
+                    </div>
+                </a>
+                <a href="#" class="app-item">
+                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img" style="filter: grayscale(50%);">
+                    <div class="app-details">
+                        <span class="app-name">Notas Rápidas</span>
+                        <span class="app-developer">Productividad</span>
+                        <span class="app-rating">4.6 ★</span>
+                    </div>
+                </a>
+                 <a href="#" class="app-item">
+                    <img src="assets/app3.png" alt="App Icon" class="app-icon-img" style="filter: invert(100%);">
+                    <div class="app-details">
+                        <span class="app-name">Editor de Código</span>
+                        <span class="app-developer">Desarrollo</span>
+                        <span class="app-rating">4.7 ★</span>
+                    </div>
+                </a>
             </div>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2026 EL RUÑO - Todos los derechos reservados.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

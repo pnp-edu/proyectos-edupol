@@ -62,13 +62,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Smart Download Logic for EDUPOL
+    // Smart Download Logic for EDUPOL (Triggered from Install button in details page)
     const edupolBtn = document.getElementById('edupol-download-btn');
-    const modal = document.getElementById('download-modal');
-    const closeBtn = document.getElementById('close-modal');
+    const installBtn = document.getElementById('detail-install-btn');
+    const detailsModal = document.getElementById('details-modal');
+    const closeDetailsBtn = document.getElementById('close-details-modal');
+    
+    const downloadModal = document.getElementById('download-modal');
+    const closeDownloadBtn = document.getElementById('close-modal');
 
+    // Click on app item shows details page
     if (edupolBtn) {
-        edupolBtn.addEventListener('click', async (e) => {
+        edupolBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            detailsModal.style.display = 'flex';
+        });
+    }
+
+    // Close details page
+    if (closeDetailsBtn) {
+        closeDetailsBtn.addEventListener('click', () => {
+            detailsModal.style.display = 'none';
+        });
+    }
+
+    // Inside details page, clicking Install starts Smart Download
+    if (installBtn) {
+        installBtn.addEventListener('click', async (e) => {
             e.preventDefault();
             let arch = null;
             
@@ -109,24 +129,25 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (arch === 'x86_64') {
                 window.location.href = 'apks/app-x86_64-release.apk';
             } else {
-                // If we can't reliably detect it, show the modal
-                modal.style.display = 'flex';
+                // If we can't reliably detect it, show the selection sub-modal
+                downloadModal.style.display = 'flex';
             }
         });
     }
 
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
+    if (closeDownloadBtn) {
+        closeDownloadBtn.addEventListener('click', () => {
+            downloadModal.style.display = 'none';
         });
     }
 
-    // Close modal when clicking outside of it
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    }
+    // Close modals when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === detailsModal) {
+            detailsModal.style.display = 'none';
+        }
+        if (e.target === downloadModal) {
+            downloadModal.style.display = 'none';
+        }
+    });
 });

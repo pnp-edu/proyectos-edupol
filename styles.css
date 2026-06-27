@@ -353,3 +353,58 @@ body {
         padding-left: 24px;
     }
 }
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+.modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.modal-header h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+.close-btn {
+    background: none; border: none; font-size: 28px; cursor: pointer; color: #5f6368;
+}
+.modal-desc {
+    font-size: 14px; color: #5f6368; margin-bottom: 20px; line-height: 1.5;
+}
+.modal-option {
+    display: block;
+    text-decoration: none;
+    padding: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+}
+.modal-option:hover {
+    background: #f8f9fa;
+    border-color: #01875f;
+}
+.option-title {
+    font-weight: 500; color: #01875f; font-size: 16px; margin-bottom: 4px;
+}
+.option-subtitle {
+    font-size: 13px; color: #5f6368;
+}

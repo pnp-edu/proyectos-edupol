@@ -22,4 +22,72 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Smart Download Logic for EDUPOL
+    const edupolBtn = document.getElementById('edupol-download-btn');
+    const modal = document.getElementById('download-modal');
+    const closeBtn = document.getElementById('close-modal');
+
+    if (edupolBtn) {
+        edupolBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            let arch = null;
+            
+            // Try modern Client Hints API if available (Chromium-based browsers)
+            if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+                try {
+                    const values = await navigator.userAgentData.getHighEntropyValues(["architecture", "bitness"]);
+                    if (values.architecture === 'arm') {
+                        if (values.bitness === '64') arch = 'arm64';
+                        else arch = 'armv7';
+                    } else if (values.architecture === 'x86') {
+                        if (values.bitness === '64') arch = 'x86_64';
+                    }
+                } catch (err) {
+                    console.error("Error reading HighEntropyValues", err);
+                }
+            }
+            
+            // Fallback: parse userAgent string for clues
+            if (!arch) {
+                const ua = navigator.userAgent.toLowerCase();
+                if (ua.includes('android')) {
+                    if (ua.includes('aarch64') || ua.includes('armv8') || ua.includes('arm64')) {
+                        arch = 'arm64';
+                    } else if (ua.includes('armv7') || ua.includes('armeabi')) {
+                        arch = 'armv7';
+                    } else if (ua.includes('x86_64') || ua.includes('x86-64')) {
+                        arch = 'x86_64';
+                    }
+                }
+            }
+            
+            // Direct download if we have a high confidence guess
+            if (arch === 'arm64') {
+                window.location.href = 'apks/app-arm64-v8a-release.apk';
+            } else if (arch === 'armv7') {
+                window.location.href = 'apks/app-armeabi-v7a-release.apk';
+            } else if (arch === 'x86_64') {
+                window.location.href = 'apks/app-x86_64-release.apk';
+            } else {
+                // If we can't reliably detect it, show the modal
+                modal.style.display = 'flex';
+            }
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+
+    // Close modal when clicking outside of it
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
 });

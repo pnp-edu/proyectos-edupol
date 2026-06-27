@@ -67,35 +67,43 @@
                 <button class="see-more">→</button>
             </div>
             <div class="app-list">
-                <!-- App Item -->
-                <a href="apks/app-arm64-v8a-release.apk" class="app-item" download>
+                <!-- Single App Item for EDUPOL -->
+                <a href="#" class="app-item" id="edupol-download-btn">
                     <img src="assets/app1.png" alt="App Icon" class="app-icon-img">
                     <div class="app-details">
-                        <span class="app-name">EDUPOL (ARM64)</span>
-                        <span class="app-developer" style="white-space: normal; height: auto; display: block;" title="Para casi todos los teléfonos modernos">Para casi todos los teléfonos modernos</span>
-                        <span class="app-rating">5.0 ★</span>
-                    </div>
-                </a>
-                <!-- App Item -->
-                <a href="apks/app-armeabi-v7a-release.apk" class="app-item" download>
-                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img">
-                    <div class="app-details">
-                        <span class="app-name">EDUPOL (ARMv7)</span>
-                        <span class="app-developer" style="white-space: normal; height: auto; display: block;" title="Para teléfonos más antiguos o de baja gama">Para teléfonos más antiguos o de baja gama</span>
-                        <span class="app-rating">5.0 ★</span>
-                    </div>
-                </a>
-                <!-- App Item -->
-                <a href="apks/app-x86_64-release.apk" class="app-item" download>
-                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img">
-                    <div class="app-details">
-                        <span class="app-name">EDUPOL (x86_64)</span>
-                        <span class="app-developer" style="white-space: normal; height: auto; display: block;" title="Para la mayoría de emuladores">Para la mayoría de emuladores</span>
+                        <span class="app-name">EDUPOL</span>
+                        <span class="app-developer">Descarga Inteligente</span>
                         <span class="app-rating">5.0 ★</span>
                     </div>
                 </a>
             </div>
         </section>
+
+        <!-- Download Modal -->
+        <div id="download-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Selecciona tu versión</h3>
+                    <button id="close-modal" class="close-btn">&times;</button>
+                </div>
+                <p class="modal-desc">No pudimos detectar automáticamente la arquitectura de tu dispositivo. Por favor, elige una opción:</p>
+                
+                <a href="apks/app-arm64-v8a-release.apk" class="modal-option" download>
+                    <div class="option-title">ARM64 (Recomendado)</div>
+                    <div class="option-subtitle">Para casi todos los teléfonos modernos (27.1 MB)</div>
+                </a>
+                
+                <a href="apks/app-armeabi-v7a-release.apk" class="modal-option" download>
+                    <div class="option-title">ARMv7</div>
+                    <div class="option-subtitle">Para teléfonos más antiguos o de baja gama (25.9 MB)</div>
+                </a>
+                
+                <a href="apks/app-x86_64-release.apk" class="modal-option" download>
+                    <div class="option-title">x86_64</div>
+                    <div class="option-subtitle">Para la mayoría de emuladores (28.5 MB)</div>
+                </a>
+            </div>
+        </div>
 
         <!-- Section 2 -->
         <section class="app-section">

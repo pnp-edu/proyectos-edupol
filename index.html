@@ -11,17 +11,7 @@
     <!-- Main Header -->
     <header class="top-header">
         <div class="logo-container">
-            <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 3.194v17.612c0 .611.666.985 1.173.666l14.496-9.158c.45-.285.45-.945 0-1.23L6.173 1.954C5.666 1.635 5 2.01 5 2.62v.574z" fill="url(#play-grad)"/>
-                <defs>
-                    <linearGradient id="play-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#00C853" />
-                        <stop offset="33%" stop-color="#2962FF" />
-                        <stop offset="66%" stop-color="#D50000" />
-                        <stop offset="100%" stop-color="#FFD600" />
-                    </linearGradient>
-                </defs>
-            </svg>
+            <!-- Logo Play icon removed per request -->
             <div class="brand-text">
                 <span class="brand-title">EL RUÑO</span>
                 <span class="brand-slogan">la ultima rueda del coche</span>
@@ -42,7 +32,7 @@
             <button class="icon-btn" aria-label="Help">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             </button>
-            <div class="profile-pic"></div>
+            <!-- Profile pic removed per request so users can download without login -->
         </div>
     </header>
 
@@ -52,74 +42,56 @@
         <button class="filter-chip active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/></svg> Teléfono</button>
         <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2" ry="2"/></svg> Tablet</button>
         <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg> TV</button>
-        <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M2 21h20"/></svg> Chromebook</button>
-        <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 13.5 13.5"/></svg> Reloj</button>
+        <button class="filter-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M2 21h20"/></svg> Web</button>
     </div>
 
     <main class="content-area">
         <!-- Promo Banner -->
         <section class="promo-banner">
             <div class="promo-content">
-                <h2>Obtén un 15 % de descuento en descargas...</h2>
-                <p>EL RUÑO | Descubre nuevas aplicaciones | Descuento máximo de S/ 55. Guarda la oferta y úsala antes del 8 de julio de 2026. Aplican términos.</p>
-                <button class="btn-promo">Guardar</button>
+                <h2>Conoce EDUPOL</h2>
+                <p>La nueva plataforma educativa ya está disponible. Descarga la app para Android o accede a la versión web de inmediato.</p>
+                <a href="https://pnp-edu.github.io/estudiEO/" target="_blank" style="text-decoration: none;">
+                    <button class="btn-promo">Ir a la Versión Web</button>
+                </a>
             </div>
             <div class="promo-image">
-                <!-- Using one of the generated app icons as promo art -->
-                <img src="assets/app2.png" alt="Promo art">
+                <img src="assets/app1.png" alt="Edupol art" style="filter: hue-rotate(45deg);">
             </div>
         </section>
 
         <!-- Section 1 -->
         <section class="app-section">
             <div class="section-title">
-                <h2>Hecho por EL RUÑO</h2>
+                <h2>Descargas de EDUPOL (Android)</h2>
                 <button class="see-more">→</button>
             </div>
             <div class="app-list">
                 <!-- App Item -->
-                <a href="#" class="app-item">
+                <a href="apks/app-arm64-v8a-release.apk" class="app-item" download>
                     <img src="assets/app1.png" alt="App Icon" class="app-icon-img">
                     <div class="app-details">
-                        <span class="app-name">ProTask Manager</span>
-                        <span class="app-developer">EL RUÑO</span>
-                        <span class="app-rating">4.5 ★</span>
-                    </div>
-                </a>
-                <!-- App Item -->
-                <a href="#" class="app-item">
-                    <img src="assets/app3.png" alt="App Icon" class="app-icon-img">
-                    <div class="app-details">
-                        <span class="app-name">WaveMusic Player</span>
-                        <span class="app-developer">EL RUÑO</span>
-                        <span class="app-rating">4.8 ★</span>
-                    </div>
-                </a>
-                <!-- App Item -->
-                <a href="#" class="app-item">
-                    <img src="assets/app2.png" alt="App Icon" class="app-icon-img">
-                    <div class="app-details">
-                        <span class="app-name">FitTrack PC</span>
-                        <span class="app-developer">EL RUÑO</span>
-                        <span class="app-rating">4.2 ★</span>
-                    </div>
-                </a>
-                
-                <!-- Extra dummies to fill space -->
-                <a href="#" class="app-item">
-                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img" style="filter: hue-rotate(90deg);">
-                    <div class="app-details">
-                        <span class="app-name">Blog Personal</span>
+                        <span class="app-name">EDUPOL (ARM64)</span>
                         <span class="app-developer">EL RUÑO</span>
                         <span class="app-rating">5.0 ★</span>
                     </div>
                 </a>
-                <a href="#" class="app-item">
-                    <img src="assets/app3.png" alt="App Icon" class="app-icon-img" style="filter: hue-rotate(180deg);">
+                <!-- App Item -->
+                <a href="apks/app-armeabi-v7a-release.apk" class="app-item" download>
+                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img">
                     <div class="app-details">
-                        <span class="app-name">Portafolio 3D</span>
+                        <span class="app-name">EDUPOL (ARMv7)</span>
                         <span class="app-developer">EL RUÑO</span>
-                        <span class="app-rating">4.9 ★</span>
+                        <span class="app-rating">5.0 ★</span>
+                    </div>
+                </a>
+                <!-- App Item -->
+                <a href="apks/app-x86_64-release.apk" class="app-item" download>
+                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img">
+                    <div class="app-details">
+                        <span class="app-name">EDUPOL (x86_64)</span>
+                        <span class="app-developer">EL RUÑO</span>
+                        <span class="app-rating">5.0 ★</span>
                     </div>
                 </a>
             </div>
@@ -128,32 +100,17 @@
         <!-- Section 2 -->
         <section class="app-section">
             <div class="section-title">
-                <h2>Apps populares</h2>
+                <h2>Otras versiones</h2>
                 <button class="see-more">→</button>
             </div>
             <div class="app-list">
-                <a href="#" class="app-item">
-                    <img src="assets/app2.png" alt="App Icon" class="app-icon-img" style="filter: hue-rotate(270deg);">
+                <!-- Web Version -->
+                <a href="https://pnp-edu.github.io/estudiEO/" target="_blank" class="app-item">
+                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img" style="filter: hue-rotate(90deg);">
                     <div class="app-details">
-                        <span class="app-name">Galería de Fotos</span>
-                        <span class="app-developer">Herramientas</span>
-                        <span class="app-rating">4.3 ★</span>
-                    </div>
-                </a>
-                <a href="#" class="app-item">
-                    <img src="assets/app1.png" alt="App Icon" class="app-icon-img" style="filter: grayscale(50%);">
-                    <div class="app-details">
-                        <span class="app-name">Notas Rápidas</span>
-                        <span class="app-developer">Productividad</span>
-                        <span class="app-rating">4.6 ★</span>
-                    </div>
-                </a>
-                 <a href="#" class="app-item">
-                    <img src="assets/app3.png" alt="App Icon" class="app-icon-img" style="filter: invert(100%);">
-                    <div class="app-details">
-                        <span class="app-name">Editor de Código</span>
-                        <span class="app-developer">Desarrollo</span>
-                        <span class="app-rating">4.7 ★</span>
+                        <span class="app-name">EDUPOL Web</span>
+                        <span class="app-developer">Navegador</span>
+                        <span class="app-rating">N/A</span>
                     </div>
                 </a>
             </div>

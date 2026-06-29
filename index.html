@@ -351,13 +351,13 @@
                             </div>
                             <div class="stat-divider"></div>
                             <div class="stat-item">
-                                <span class="stat-value">APK Fat</span>
-                                <span class="stat-label">Multi-Arquitectura</span>
+                                <span class="stat-value">APKs Optimizados</span>
+                                <span class="stat-label">Específicos por CPU</span>
                             </div>
                         </div>
 
                         <div class="details-actions">
-                            <a href="apks/actium-release.apk" download class="btn-install" style="text-decoration: none; text-align: center;">Descargar APK</a>
+                            <a href="#" id="detail-install-btn-actium" class="btn-install" style="text-decoration: none; text-align: center;">Descargar APK</a>
                         </div>
                     </div>
                 </div>
@@ -368,7 +368,7 @@
                         <section class="details-section">
                             <h3>Acerca de esta aplicación</h3>
                             <p class="details-desc">
-                                ACTIUM es una poderosa herramienta diseñada para maximizar tu productividad en cualquier lugar. Disfruta de la mejor experiencia móvil con un diseño elegante y fluido. La APK es universal y compatible con todos los dispositivos Android (ARM y x86).
+                                ACTIUM es una poderosa herramienta diseñada para maximizar tu productividad en cualquier lugar. Disfruta de la mejor experiencia móvil con un diseño elegante y fluido. Se han generado versiones optimizadas para cada dispositivo Android (ARM y x86).
                             </p>
                             <div class="details-tags">
                                 <span class="detail-tag">Productividad</span>
@@ -384,7 +384,7 @@
                                 <li><strong>Última actualización:</strong> 27 de junio de 2026</li>
                                 <li><strong>Sistema Operativo:</strong> Android 7.0 o superior</li>
                                 <li><strong>Almacenamiento:</strong> ~40 MB de espacio libre</li>
-                                <li><strong>Hardware:</strong> Todas las arquitecturas (Universal Fat APK)</li>
+                                <li><strong>Hardware:</strong> Requiere elegir arquitectura (ARM/x86)</li>
                             </ul>
                         </section>
                     </div>
@@ -488,7 +488,34 @@
                 </a>
             </div>
         </div>
+
+        <!-- Download Selection Modal ACTIUM (Sub-modal) -->
+        <div id="download-modal-actium" class="modal-overlay" style="display: none; z-index: 1200;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Selecciona tu versión</h3>
+                    <button id="close-modal-actium" class="close-btn">&times;</button>
+                </div>
+                <p class="modal-desc">Elige la versión correspondiente a tu dispositivo:</p>
+                
+                <a href="apks/actium-arm64-v8a-release.apk" class="modal-option" download>
+                    <div class="option-title">ARM64 (Recomendado)</div>
+                    <div class="option-subtitle">Para casi todos los teléfonos modernos (38.1 MB)</div>
+                </a>
+                
+                <a href="apks/actium-armeabi-v7a-release.apk" class="modal-option" download>
+                    <div class="option-title">ARMv7</div>
+                    <div class="option-subtitle">Para teléfonos más antiguos o de baja gama (36.3 MB)</div>
+                </a>
+                
+                <a href="apks/actium-x86_64-release.apk" class="modal-option" download>
+                    <div class="option-title">x86_64</div>
+                    <div class="option-subtitle">Para la mayoría de emuladores (39.5 MB)</div>
+                </a>
+            </div>
+        </div>
     </main>
+
 
     <!-- Bottom Navigation (Mobile Only) -->
     <nav class="bottom-nav">

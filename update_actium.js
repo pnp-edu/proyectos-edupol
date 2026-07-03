@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-// 1. Copy files
+// 1. Copy files (local copy for backup, though they are gitignored)
 const srcDir = '/Users/brayanizq/Documents/actiumapp/build/app/outputs/flutter-apk';
 const destDir = '/Users/brayanizq/Documents/appstore/apks';
 
@@ -15,7 +15,7 @@ const filesToCopy = {
   'app-x86_64-release.apk': 'actium-x86_64-release.apk'
 };
 
-console.log('Copying APK files...');
+console.log('Copying APK files locally...');
 for (const [src, dest] of Object.entries(filesToCopy)) {
   const srcPath = path.join(srcDir, src);
   const destPath = path.join(destDir, dest);
@@ -60,17 +60,25 @@ updateModalDate('details-modal-actium-pc');
 fs.writeFileSync(htmlPath, html, 'utf8');
 console.log(`Updated date to: ${formattedDate}`);
 
-// 3. Git commit and push changes (including the new Actium APK files)
-console.log('Pushing changes to GitHub...');
+// 3. Update GitHub Release (upload the files directly)
+console.log('Uploading updated APKs to GitHub Release v1.0.0...');
 try {
-  // Add index.html, script.js and the specific Actium APKs (excluding the fat actium-release.apk)
-  execSync('git add index.html script.js', { stdio: 'inherit' });
-  execSync('git add apks/actium-arm64-v8a-release.apk apks/actium-armeabi-v7a-release.apk apks/actium-x86_64-release.apk', { stdio: 'inherit' });
-  if (fs.existsSync(path.join(destDir, 'actium-windows.zip'))) {
-    execSync('git add apks/actium-windows.zip', { stdio: 'inherit' });
+  for (const dest of Object.values(filesToCopy)) {
+    const destPath = path.join(destDir, dest);
+    if (fs.existsSync(destPath)) {
+      console.log(`Uploading ${dest} to release v1.0.0...`);
+      execSync(`gh release upload v1.0.0 "${destPath}" --clobber`, { stdio: 'inherit' });
+    }
   }
-  
-  execSync('git commit -m "Auto-update Actium APKs and release date"', { stdio: 'inherit' });
+} catch (err) {
+  console.error('Error uploading to GitHub Release:', err.message);
+}
+
+// 4. Git commit and push changes (index.html, script.js and update_actium.js)
+console.log('Pushing HTML changes to GitHub...');
+try {
+  execSync('git add index.html script.js update_actium.js .gitignore', { stdio: 'inherit' });
+  execSync('git commit -m "Auto-update Actium release date and upload assets"', { stdio: 'inherit' });
   execSync('git push origin main', { stdio: 'inherit' });
   execSync('git branch -f gh-pages main', { stdio: 'inherit' });
   execSync('git push -f origin gh-pages', { stdio: 'inherit' });

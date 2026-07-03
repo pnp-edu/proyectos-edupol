@@ -278,11 +278,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Direct download if we have a high confidence guess
             if (arch === 'arm64') {
-                window.location.href = 'https://github.com/pnp-edu/proyectos-edupol/releases/download/v1.0.0/actium-arm64-v8a-release.apk?t=' + Date.now();
+                window.location.href = 'apks/actium-arm64-v8a-release.apk?t=' + Date.now();
             } else if (arch === 'armv7') {
-                window.location.href = 'https://github.com/pnp-edu/proyectos-edupol/releases/download/v1.0.0/actium-armeabi-v7a-release.apk?t=' + Date.now();
+                window.location.href = 'apks/actium-armeabi-v7a-release.apk?t=' + Date.now();
             } else if (arch === 'x86_64') {
-                window.location.href = 'https://github.com/pnp-edu/proyectos-edupol/releases/download/v1.0.0/actium-x86_64-release.apk?t=' + Date.now();
+                window.location.href = 'apks/actium-x86_64-release.apk?t=' + Date.now();
             } else {
                 // If we can't reliably detect it, show the selection sub-modal
                 downloadModalActium.style.display = 'flex';

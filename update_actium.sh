@@ -57,7 +57,7 @@ echo "Updated date to: $FORMATTED_DATE"
 echo "Pushing updates to main branch..."
 git checkout main
 git add index.html script.js update_actium.sh .gitignore
-git add -f apks/actium-arm64-v8a-release.apk apks/actium-armeabi-v7a-release.apk apks/actium-x86_64-release.apk apks/actium-windows.zip
+git add -f apks/actium-release.apk apks/actium-arm64-v8a-release.apk apks/actium-armeabi-v7a-release.apk apks/actium-x86_64-release.apk apks/actium-windows.zip
 git commit -m "Auto-update Actium APKs and release date on main"
 git push origin main
 

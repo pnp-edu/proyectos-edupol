@@ -1,2 +1,3 @@
 apks/
+!apks/actium-release.apk
 .DS_Store

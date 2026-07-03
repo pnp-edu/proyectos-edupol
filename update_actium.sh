@@ -51,23 +51,25 @@ with open(html_path, 'w', encoding='utf-8') as f:
 
 echo "Updated date to: $FORMATTED_DATE"
 
-# 3. Upload to GitHub Release (since LFS/push limit blocks >100MB files on branches)
-echo "Uploading APKs to GitHub Release v1.0.0..."
-/opt/homebrew/bin/gh release upload v1.0.0 "$DEST_DIR/actium-release.apk" "$DEST_DIR/actium-debug.apk" --clobber
+# 3. Upload only Debug APK to Release (since it is >100MB and blocked by GitHub push limit)
+echo "Uploading Debug APK to GitHub Release v1.0.0..."
+/opt/homebrew/bin/gh release upload v1.0.0 "$DEST_DIR/actium-debug.apk" --clobber
 
-# 4. Commit and push on main branch (excluding the apks/ folder completely via gitignore)
+# 4. Commit and push on main branch (tracking only actium-release.apk which is <100MB)
 echo "Pushing updates to main branch..."
 git checkout main
-git rm -r --cached apks/ || true
 git add index.html script.js update_actium.sh .gitignore
-git commit -m "Auto-update Actium web page details and upload assets to Release"
+git add -f apks/actium-release.apk
+git commit -m "Auto-update Actium web page details and commit Release APK"
 git push origin main
 
-# 5. Update gh-pages branch
+# 5. Update gh-pages branch (excluding the apks/ folder to keep build light)
 echo "Updating gh-pages branch..."
 git checkout gh-pages
 git reset --hard origin/gh-pages
 git reset --hard main
+git rm -r --cached apks/ || true
+git commit -m "Remove apks directory from gh-pages deployment branch" --allow-empty
 git push -f origin gh-pages
 git checkout -f main
 

@@ -68,6 +68,6 @@ git merge main --no-edit
 git rm -r --cached apks/ || true
 git commit -m "Remove apks directory from gh-pages deployment branch" --allow-empty
 git push origin gh-pages
-git checkout main
+git checkout -f main
 
 echo "Successfully pushed changes to GitHub Pages!"

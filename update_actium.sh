@@ -1,14 +1,12 @@
 #!/usr/bin/env zsh
 
-# 1. Copy files
+# 1. Copy files (local copy for backup, gitignored)
 SRC_DIR="/Users/brayanizq/Documents/actiumapp/build/app/outputs/flutter-apk"
 DEST_DIR="/Users/brayanizq/Documents/appstore/apks"
 
 echo "Copying APK files..."
 cp "$SRC_DIR/app-release.apk" "$DEST_DIR/actium-release.apk"
-cp "$SRC_DIR/app-arm64-v8a-release.apk" "$DEST_DIR/actium-arm64-v8a-release.apk"
-cp "$SRC_DIR/app-armeabi-v7a-release.apk" "$DEST_DIR/actium-armeabi-v7a-release.apk"
-cp "$SRC_DIR/app-x86_64-release.apk" "$DEST_DIR/actium-x86_64-release.apk"
+cp "$SRC_DIR/app-debug.apk" "$DEST_DIR/actium-debug.apk"
 
 # 2. Update date in index.html
 echo "Updating last updated date in index.html..."
@@ -53,20 +51,22 @@ with open(html_path, 'w', encoding='utf-8') as f:
 
 echo "Updated date to: $FORMATTED_DATE"
 
-# 3. Commit and push on main branch
+# 3. Upload to GitHub Release (since LFS/push limit blocks >100MB files on branches)
+echo "Uploading APKs to GitHub Release v1.0.0..."
+/opt/homebrew/bin/gh release upload v1.0.0 "$DEST_DIR/actium-release.apk" "$DEST_DIR/actium-debug.apk" --clobber
+
+# 4. Commit and push on main branch (excluding the apks/ folder completely via gitignore)
 echo "Pushing updates to main branch..."
 git checkout main
+git rm -r --cached apks/ || true
 git add index.html script.js update_actium.sh .gitignore
-git add -f apks/actium-release.apk apks/actium-arm64-v8a-release.apk apks/actium-armeabi-v7a-release.apk apks/actium-x86_64-release.apk apks/actium-windows.zip
-git commit -m "Auto-update Actium APKs and release date on main"
+git commit -m "Auto-update Actium web page details and upload assets to Release"
 git push origin main
 
-# 4. Update gh-pages branch WITHOUT the apks directory
-echo "Updating gh-pages branch (excluding apks/ folder)..."
+# 5. Update gh-pages branch
+echo "Updating gh-pages branch..."
 git checkout gh-pages
 git merge main --no-edit
-git rm -r --cached apks/ || true
-git commit -m "Remove apks directory from gh-pages deployment branch" --allow-empty
 git push origin gh-pages
 git checkout -f main
 

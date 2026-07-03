@@ -66,8 +66,9 @@ git push origin main
 # 5. Update gh-pages branch
 echo "Updating gh-pages branch..."
 git checkout gh-pages
-git merge main --no-edit
-git push origin gh-pages
+git reset --hard origin/gh-pages
+git reset --hard main
+git push -f origin gh-pages
 git checkout -f main
 
 echo "Successfully pushed changes to GitHub Pages!"

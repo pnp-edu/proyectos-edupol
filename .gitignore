@@ -1,3 +1,6 @@
 apks/
 !apks/actium-release.apk
+!apks/actium-arm64-v8a-release.apk
+!apks/actium-armeabi-v7a-release.apk
+!apks/actium-x86_64-release.apk
 .DS_Store

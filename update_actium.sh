@@ -6,7 +6,9 @@ DEST_DIR="/Users/brayanizq/Documents/appstore/apks"
 
 echo "Copying APK files..."
 cp "$SRC_DIR/app-release.apk" "$DEST_DIR/actium-release.apk"
-cp "$SRC_DIR/app-debug.apk" "$DEST_DIR/actium-debug.apk"
+cp "$SRC_DIR/app-arm64-v8a-release.apk" "$DEST_DIR/actium-arm64-v8a-release.apk"
+cp "$SRC_DIR/app-armeabi-v7a-release.apk" "$DEST_DIR/actium-armeabi-v7a-release.apk"
+cp "$SRC_DIR/app-x86_64-release.apk" "$DEST_DIR/actium-x86_64-release.apk"
 
 # 2. Update date in index.html
 echo "Updating last updated date in index.html..."
@@ -51,19 +53,15 @@ with open(html_path, 'w', encoding='utf-8') as f:
 
 echo "Updated date to: $FORMATTED_DATE"
 
-# 3. Upload only Debug APK to Release (since it is >100MB and blocked by GitHub push limit)
-echo "Uploading Debug APK to GitHub Release v1.0.0..."
-/opt/homebrew/bin/gh release upload v1.0.0 "$DEST_DIR/actium-debug.apk" --clobber
-
-# 4. Commit and push on main branch (tracking only actium-release.apk which is <100MB)
+# 3. Commit and push on main branch (tracking all release APKs which are <100MB)
 echo "Pushing updates to main branch..."
 git checkout main
 git add index.html script.js update_actium.sh .gitignore
-git add -f apks/actium-release.apk
-git commit -m "Auto-update Actium web page details and commit Release APK"
+git add -f apks/actium-release.apk apks/actium-arm64-v8a-release.apk apks/actium-armeabi-v7a-release.apk apks/actium-x86_64-release.apk
+git commit -m "Auto-update Actium web page details and commit split APKs"
 git push origin main
 
-# 5. Update gh-pages branch (excluding the apks/ folder to keep build light)
+# 4. Update gh-pages branch (excluding the apks/ folder to keep build light)
 echo "Updating gh-pages branch..."
 git checkout gh-pages
 git reset --hard origin/gh-pages

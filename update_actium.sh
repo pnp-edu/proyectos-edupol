@@ -17,7 +17,7 @@ HTML_PATH="/Users/brayanizq/Documents/appstore/index.html"
 # Compute Spanish date
 MONTHS=("enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre")
 DAY=$(date +%-d)
-MONTH_IDX=$(($(date +%-m) - 1))
+MONTH_IDX=$(date +%-m)
 MONTH=${MONTHS[$MONTH_IDX]}
 YEAR=$(date +%Y)
 TIME=$(date +"%I:%M %p")

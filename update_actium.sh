@@ -10,6 +10,10 @@ cp "$SRC_DIR/app-arm64-v8a-release.apk" "$DEST_DIR/actium-arm64-v8a-release.apk"
 cp "$SRC_DIR/app-armeabi-v7a-release.apk" "$DEST_DIR/actium-armeabi-v7a-release.apk"
 cp "$SRC_DIR/app-x86_64-release.apk" "$DEST_DIR/actium-x86_64-release.apk"
 
+echo "Compressing Actium macOS app..."
+zip -r "$DEST_DIR/actium-mac.zip" "/Users/brayanizq/Documents/actiumapp/build/macos/Build/Products/Release/actium.app"
+
+
 # 2. Update date in index.html
 echo "Updating last updated date in index.html..."
 HTML_PATH="/Users/brayanizq/Documents/appstore/index.html"
@@ -57,8 +61,8 @@ echo "Updated date to: $FORMATTED_DATE"
 echo "Pushing updates to main branch..."
 git checkout main
 git add index.html script.js update_actium.sh .gitignore
-git add -f apks/actium-release.apk apks/actium-arm64-v8a-release.apk apks/actium-armeabi-v7a-release.apk apks/actium-x86_64-release.apk
-git commit -m "Auto-update Actium web page details and commit split APKs"
+git add -f apks/actium-release.apk apks/actium-arm64-v8a-release.apk apks/actium-armeabi-v7a-release.apk apks/actium-x86_64-release.apk apks/actium-mac.zip
+git commit -m "Auto-update Actium web page details and commit split APKs & macOS zip"
 git push origin main
 
 # 4. Update gh-pages branch (excluding the apks/ folder to keep build light)

@@ -4,6 +4,7 @@ apks/
 !apks/actium-armeabi-v7a-release.apk
 !apks/actium-x86_64-release.apk
 !apks/actium-mac.zip
+!apks/actium-ios.zip
 !apks/edupol-release.apk
 !apks/edupol-mac.zip
 .DS_Store
